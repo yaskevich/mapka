@@ -1,0 +1,214 @@
+<div class="container">
+  
+  <div  id="div-lang-switch">
+	<span class="label label-success">{{{__ "Site Language"}}}</span>
+	   <div class="btn-group btn-group-xs">
+			<button type="button" id="btn-lang-be" class="btn btn-default">{{{__ "Belarusian"}}} (Беларуская)</button>
+			<button type="button" id="btn-lang-en" class="btn btn-default">{{{__ "English"}}} (English)</button>	
+			<button type="button" id="btn-lang-ru" class="btn btn-default">{{{__ "Russian"}}} (Русский)</button>
+		</div>
+  </div>
+  
+<h2><a href="/" title='{{{__ "Click here to return to the start page"}}}'>{{{__ "title"}}}</a></h2>
+
+ 
+  <ul id="tabnav" class="nav nav-tabs nav-justified">
+    <li class="active"><a data-toggle="tab" href="#home">{{{__ "Step 1: plain text"}}}</a></li>
+    <li><a data-toggle="tab" href="#menu1">{{{__ "Step 2: separated lines"}}}</a></li>
+    <li><a data-toggle="tab" href="#menu2">{{{__ "Step 3: units"}}}</a></li>
+    <li><a data-toggle="tab" href="#menu3">{{{__ "Step 4: map"}}}</a></li>
+    <li><a data-toggle="tab" href="#menu4">{{{__ "Step 5: publishing"}}}</a></li>
+  </ul>
+  
+  
+  	<div id="waychoice" class="row" style="padding-left:20px;">
+		<h3>{{{__ "Choice of data input"}}}</h3>
+		<p>{{{__ "Select your way of data processing and press"}}} «OK»</p>
+	    <div class="row form-group product-chooser">
+    
+    	<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+    		<div class="product-chooser-item">
+    			<img src="mapka-sheet.png" class="img-rounded col-xs-4 col-sm-4 col-md-12 col-lg-12" alt="Mobile and Desktop">
+                <div class="col-xs-8 col-sm-8 col-md-12 col-lg-12">
+    				<span class="title">{{{__ "Unit extraction"}}}</span>
+    				<span class="description">{{{__ "I have text sheet and need to extract references to adminstrative units"}}}.</span>
+    				<input type="radio" name="product" value="mobile_desktop" checked="checked">
+    			</div>
+    			<div class="clear"></div>
+    		</div>
+    	</div>
+    	
+    	<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+    		<div class="product-chooser-item">
+    			<img src="mapka-manual.png" class="img-rounded col-xs-4 col-sm-4 col-md-12 col-lg-12" alt="Desktop">
+                <div class="col-xs-8 col-sm-8 col-md-12 col-lg-12">
+    				<span class="title">{{{__ "Manual input"}}}</span>
+    				<span class="description">{{{__ "I'm going to select units and set values manually"}}}.</span>
+    				<input type="radio" name="product" value="desktop">
+    			</div>
+    			<div class="clear"></div>
+    		</div>
+    	</div>
+    	
+    	<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+    		<div class="product-chooser-item selected">
+    			<img src="mapka-demo.gif" class="img-rounded col-xs-4 col-sm-4 col-md-12 col-lg-12" alt="Mobile">
+                <div class="col-xs-8 col-sm-8 col-md-12 col-lg-12">
+    				<span class="title">{{{__ "Demo"}}}</span>
+    				<span class="description">{{{__ "I just want to see how it works on sample data"}}}.</span>
+    				<input type="radio" name="product" value="mobile">
+    			</div>
+    			<div class="clear"></div>
+    		</div>
+    	</div>
+    	
+    </div>
+	
+	
+
+		<div class="text-center">
+		  <button id="run" type="button" class="btn btn-primary btn-lg">{{{__ "OK"}}}</button>
+		</div>
+  	</div>
+  
+  <div id="tabdiv" class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      <h3>{{{__ "Text processing"}}}</h3>
+	    <span class="label label-info">{{{__ "Unit"}}}</span>
+	   <div class="btn-group btn-group-xs">
+			<button type="button" class="btn btn-default active">{{{__ "District"}}}</button>
+			<button type="button" class="btn btn-default">{{{__ "Region"}}}</button>	
+			<!-- <button type="button" class="btn btn-default">{{{__ "Country"}}}</button> -->
+		</div>
+	  <div class="row">
+  <div class="border col-xs-6">
+    &nbsp;
+  </div>
+  <div class="border col-xs-6">
+
+  </div>
+</div>
+	  
+	
+	
+	
+      <p>{{{__ "Paste text into the text area. Check whether all content was pasted correctly!"}}}</p>
+	  <textarea cols="2" rows="10" id="rawtext"></textarea>	
+    </div>
+    <div id="menu1" class="tab-pane fade">
+      <h3>{{{__ "Text converted to lines"}}}.</h3>
+	  	  <div id="div-data-lang-switch">
+			<span class="label label-info">{{{__ "Content Language"}}}</span>
+			<div class="btn-group btn-group-xs">
+				<button type="button" id="btn-lang-be" class="btn btn-default">{{{__ "Belarusian"}}}</button>
+				<!-- <button type="button" id="btn-lang-en" class="btn btn-default">{{{__ "English"}}}</button>	 -->
+				<button type="button" id="btn-lang-ru" class="btn btn-default">{{{__ "Russian"}}}</button>
+			</div>
+		</div>
+      <p>{{{__ "Here are processed lines. Check them"}}}!</p>
+      <p>{{{__ "If something is wrong, click on the line and fix typos"}}}.
+	  {{{__ "If text was incorrectly splited into lines, go to previous step"}}}.</p>
+
+		<div class="col-md-12">
+		  <div class="list-group" id="rawlist">
+		  </div>
+		</div><!-- /.col-sm-4 -->
+				
+		<!--  <div class="alert alert-success" role="alert">
+				<strong>Well done!</strong> You successfully read this important alert message.
+			  </div>
+		 </div> -->
+						
+    </div>
+	
+    <div id="menu2" class="tab-pane fade">
+      <h3>{{{__ "Units and values"}}}</h3>
+	  <p>{{{__ "Wrong units will be just ignored. You can leave them"}}}.</p>
+	  <button type="button" id="reload2" class="btn-xs btn-default">{{{__ "Reload data from previous step"}}}</button>
+	  <button type="submit" id="smartcheck" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-floppy-saved"></span> {{{__ "Check"}}}!</button>
+	  
+	  <!-- Here is ready to go data. -->
+      <p><span id="step3info"></span></p>
+	  
+	  
+		
+		
+		
+	<div class="row">
+</div>
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="padding:35px 50px;">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4><span class="glyphicon glyphicon-lock"></span>{{{__ "Item Entry"}}}</h4>
+        </div>
+        <div class="modal-body" style="padding:40px 50px;">
+          <form role="form">
+            <div class="form-group">
+              <label for="units-chosen"><span class="glyphicon glyphicon-map-marker"></span>{{{__ "Administrative Unit"}}}</label>
+			  <select data-placeholder="Choose a district" id="units-chosen" class="chosen-select"  tabindex="2"></select>
+            </div>
+			<div class="form-group">
+			  <label for="quantity"><span class="glyphicon glyphicon-stats"></span>{{{__ "Quantity"}}}</label>
+			  <input type="text" class="form-control" id="quantity">&nbsp;<span id="errmsg"></span>
+			</div>
+            <!-- <div class="checkbox">
+              <label><input type="checkbox" value="" checked>Remember me</label>
+            </div> -->
+              <button type="submit" id="save-from-modal" class="btn btn-primary btn-block"  data-dismiss="modal"><span class="glyphicon glyphicon-floppy-saved"></span> Save</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>{{{__ "Cancel"}}}</button>
+        </div>
+      </div>
+
+	</div>
+	</div>
+		<div class="raw">
+				<table id="itemchecker" class="customtable table-hover table table-condensed table-responsive isortope">
+					<thead>
+						<tr id="tableheader">
+							<th>id</th>
+							<th>District</th>
+							<th>{{{__ "Value"}}}</th>
+							<th data-sort-type='none'>
+							&nbsp;
+							<button type="button" id="newrow" style="width:26.5%;" class="btn-xs btn-primary btn-block" data-toggle="modal">+ {{{__ "Add a row"}}}</button>
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+		</div>
+	</div>
+    <div id="menu3" class="tab-pane fade">
+      <h3>{{{__ "Customize map"}}}.</h3>
+	  <div  id="map-lang-switch">
+		<span class="label label-warning">{{{__ "Map Language"}}}</span>
+		   <div class="btn-group btn-group-xs">
+				<button type="button" id="btn-lang-be" class="btn btn-default">{{{__ "Belarusian"}}}</button>
+				<!-- <button type="button" id="btn-lang-en" class="btn btn-default">{{{__ "English"}}}</button>	 -->
+				<button type="button" id="btn-lang-ru" class="btn btn-default">{{{__ "Russian"}}}</button>
+			</div>
+	  </div>
+	  
+	  <div id="map"></div>
+    </div>
+	<div id="menu4" class="tab-pane fade">
+      <h3>{{{__ "Publish"}}}</h3>
+      <p>
+		{{{__ "Export or share"}}}. {{{__ "You need to login to do it"}}}.
+	  </p>
+	  <div><button type="button" id="makepng" class="btn-xs btn-primary">{{{__ "Make PNG"}}}</button>
+	  <button type="button" id="makepng1212" class="btn-xs btn-primary">{{{__ "Get link"}}}</button></div>
+	  
+ 	  <canvas id="canvas" width="1200" height="900"></canvas>
+	<div id="png-container"></div>
+    </div>
+  </div>
+	</div>
